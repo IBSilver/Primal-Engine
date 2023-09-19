@@ -1,4 +1,0 @@
-﻿  ModuleCamera3D.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': macro redefinition
-C:\Users\sgmiq\Downloads\Physics3D_5_-_PhysVehicle\Physics3D_class5 - solution\SDL\include\SDL_stdinc.h(619): message : see previous definition of 'M_PI'
-  3D Physics.vcxproj -> C:\Users\sgmiq\Downloads\Physics3D_5_-_PhysVehicle\Physics3D_class5 - solution\Debug\3D Physics - class5.exe
