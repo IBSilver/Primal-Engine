@@ -163,9 +163,21 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 	ImGui_ImplSDL2_NewFrame();
 	ImGui::NewFrame();
 
+	bool test = false;
 	// 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
+	//ImGui::Text("Hello, world %d", numOfLeaves);
+	//if (ImGui::Button("Exit")) {
+	//	numOfLeaves++;
+	//}
 	ImGui::ShowDemoWindow();
-
+	if (ImGui::Button("Exit")) {
+		test = true;
+	}
+	if (test == true) {
+		if (ImGui::Button("Testing")) {
+			test = true;
+		}
+	}
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
 
 
