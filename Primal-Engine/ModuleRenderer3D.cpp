@@ -1,6 +1,9 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleRenderer3D.h"
+#include "ModuleEditor.h"
+#include "ModuleWindow.h"
+#include "ModuleCamera3D.h"
 #include "SDL\include\SDL_opengl.h"
 #include <gl/GL.h>
 #include <gl/GLU.h>
@@ -158,37 +161,9 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 // PostUpdate present buffer to screen
 update_status ModuleRenderer3D::PostUpdate(float dt)
 {
-	// Start the Dear ImGui frame
-	ImGui_ImplOpenGL3_NewFrame();
-	ImGui_ImplSDL2_NewFrame();
-	ImGui::NewFrame();
-
-	bool test = false;
-	// 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
-	//ImGui::Text("Hello, world %d", numOfLeaves);
-	//if (ImGui::Button("Exit")) {
-	//	numOfLeaves++;
-	//}
-	ImGui::ShowDemoWindow();
-	if (ImGui::Button("Exit")) {
-		test = true;
-	}
-	if (test == true) {
-		if (ImGui::Button("Testing")) {
-			test = true;
-		}
-	}
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
-
-
-	// Rendering
-	ImGui::Render();
-	glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);
-	//glClearColor(1.0, 1.0, 1.0, 0.0);
-	//glClear(GL_COLOR_BUFFER_BIT);
-	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
 	Grid.Render();
+	App->editor->DrawEditor();
 	SDL_GL_SwapWindow(App->window->window);
 	return UPDATE_CONTINUE;
 }
