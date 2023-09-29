@@ -27,6 +27,7 @@ bool ModuleEditor::Init() {
 	ImGui_ImplSDL2_InitForOpenGL(App->window->window, App->renderer3D->context);
 	ImGui_ImplOpenGL3_Init();
 
+	mFPSLog.reserve(30);
 
 	return false;
 }
@@ -37,14 +38,38 @@ void ModuleEditor::DrawEditor() {
 	ImGui_ImplSDL2_NewFrame();
 	ImGui::NewFrame();
 
-	//if (ImGui::BeginMainMenuBar()) {
-	//	if (ImGui::BeginMenu()) {
+    if (ImGui::BeginMainMenuBar())
+    {
+        if (ImGui::BeginMenu("File"))
+        {
+            ImGui::Text("Hello world!");
+            ImGui::EndMenu();
+        }
+        if (ImGui::BeginMenu("Assets"))
+        {
+            ImGui::Text("Hello world!");
+            ImGui::EndMenu();
+        }
+        if (ImGui::BeginMenu("Objects"))
+        {
+            ImGui::Text("Hello world!");
+            ImGui::EndMenu();
+        }
+        if (ImGui::BeginMenu("About"))
+        {
+            ImGui::Text("Hello world!");
+            ImGui::EndMenu();
+        }
+        ImGui::EndMainMenuBar();
+    }
 
-	//		ImGui::EndMenu();
-	//	}
-	//	ImGui::EndMainMenuBar();
-	//}
+    if (ImGui::Begin("Configuration"))
+    {
+        ImGui::PlotHistogram("FPS", mFPSLog.data(), mFPSLog.size());
+        ImGui::End();
+    }
 
+    ImGui::ShowDemoWindow();
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
@@ -54,4 +79,24 @@ bool ModuleEditor::CleanUp() {
 	ImGui_ImplSDL2_Shutdown();
 	ImGui::DestroyContext();
 	return false;
+}
+
+void ModuleEditor::AddFPS(const float aFPS)
+{
+    if (mFPSLog.size() < 30)
+    {
+        mFPSLog.push_back(aFPS);
+    }
+    else
+    {
+        for (unsigned int i = 0; i < mFPSLog.size(); i++)
+        {
+            if (i + 1 < mFPSLog.size())
+            {
+                float iCopy = mFPSLog[i + 1];
+                mFPSLog[i] = iCopy;
+            }
+        }
+        mFPSLog[mFPSLog.capacity() - 1] = aFPS;
+    }
 }

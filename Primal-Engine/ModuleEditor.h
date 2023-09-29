@@ -16,6 +16,8 @@ public:
 
 	void DrawEditor();
 
+	void AddFPS(const float aFPS);
+
 	bool CleanUp() override;
 
 };
