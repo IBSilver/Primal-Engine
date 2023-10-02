@@ -19,14 +19,14 @@ bool ModuleEditor::Init() {
     ImGuiIO& io = ImGui::GetIO(); (void)io;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
-    //io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;         // Enable Docking
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;         // Enable Docking
     ImGui::StyleColorsDark();
     ImGuiStyle& style = ImGui::GetStyle();
-    //if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-    //{
-    //    style.WindowRounding = 0.0f;
-    //    style.Colors[ImGuiCol_WindowBg].w = 1.0f;
-    //}
+    if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+    {
+        style.WindowRounding = 0.0f;
+        style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+    }
 
     ImGui_ImplSDL2_InitForOpenGL(App->window->window, App->renderer3D->context);
     ImGui_ImplOpenGL3_Init();
@@ -48,7 +48,7 @@ bool ModuleEditor::DrawEditor() {
     ImGui::NewFrame();
 
     // Demo Menu
-    ImGui::ShowDemoWindow();
+    //ImGui::ShowDemoWindow();
 
     // MainMenuBar
     if (ImGui::BeginMainMenuBar())
@@ -76,7 +76,7 @@ bool ModuleEditor::DrawEditor() {
         ImGui::EndMainMenuBar();
     }
 
-    ImGui::PlotHistogram("FPS", mFPSLog.data(), mFPSLogSize, 0, (const char*)0, 300, 50, ImVec2(300, 50));
+    ImGui::PlotHistogram("FPS", mFPSLog.data(), mFPSLogSize);
     ImGui::DragInt("Graph size", &mFPSLogSize, 0.5f, 1, 100);
 
     ImGui::Render();
