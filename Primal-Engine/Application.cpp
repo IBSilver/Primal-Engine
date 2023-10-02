@@ -64,6 +64,7 @@ void Application::PrepareUpdate()
 {
 	dt = (float)ms_timer.Read() / 1000.0f;
 	ms_timer.Start();
+	this->editor->AddFPS(dt);
 }
 
 // ---------------------------------------------

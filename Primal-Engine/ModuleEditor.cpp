@@ -3,8 +3,6 @@
 #include "ImGui/backends/imgui_impl_opengl3.h"
 #include "ImGui/backends/imgui_impl_sdl.h"
 #include "Application.h"
-#include "ModuleWindow.h"
-#include "ModuleRenderer3D.h"
 
 ModuleEditor::ModuleEditor(Application* app, bool start_enabled) : Module(app, start_enabled) {
 
@@ -16,62 +14,75 @@ ModuleEditor::~ModuleEditor() {
 
 bool ModuleEditor::Init() {
 
-	IMGUI_CHECKVERSION();
-	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
-	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-	io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO(); (void)io;
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+    //io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;         // Enable Docking
+    ImGui::StyleColorsDark();
+    ImGuiStyle& style = ImGui::GetStyle();
+    //if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+    //{
+    //    style.WindowRounding = 0.0f;
+    //    style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+    //}
 
-	ImGui::StyleColorsDark();
+    ImGui_ImplSDL2_InitForOpenGL(App->window->window, App->renderer3D->context);
+    ImGui_ImplOpenGL3_Init();
 
-	ImGui_ImplSDL2_InitForOpenGL(App->window->window, App->renderer3D->context);
-	ImGui_ImplOpenGL3_Init();
-
-	mFPSLog.reserve(30);
-
-	return false;
+    return true;
 }
 
-void ModuleEditor::DrawEditor() {
+bool ModuleEditor::DrawEditor() {
 
-	ImGui_ImplOpenGL3_NewFrame();
-	ImGui_ImplSDL2_NewFrame();
-	ImGui::NewFrame();
+    if (Initializated == false) {
+        Initializated = true;
+        ImGui_ImplOpenGL3_Init();
+    }
 
+    bool ret = true;
+
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplSDL2_NewFrame();
+    ImGui::NewFrame();
+
+    // Demo Menu
+    ImGui::ShowDemoWindow();
+
+    // MainMenuBar
     if (ImGui::BeginMainMenuBar())
     {
         if (ImGui::BeginMenu("File"))
         {
-            ImGui::Text("Hello world!");
+            if (ImGui::MenuItem("Import")) {}
+            if (ImGui::MenuItem("Close", "Ctrl+Q")) { ret = false; } // <-- Exit Code
             ImGui::EndMenu();
         }
-        if (ImGui::BeginMenu("Assets"))
+        if (ImGui::BeginMenu("Edit"))
         {
-            ImGui::Text("Hello world!");
             ImGui::EndMenu();
         }
-        if (ImGui::BeginMenu("Objects"))
+        if (ImGui::BeginMenu("Select"))
         {
-            ImGui::Text("Hello world!");
             ImGui::EndMenu();
         }
-        if (ImGui::BeginMenu("About"))
+        if (ImGui::BeginMenu("Help"))
         {
-            ImGui::Text("Hello world!");
+            if (ImGui::MenuItem("About")) { ImGui::Text("We lit"); }
             ImGui::EndMenu();
         }
+
         ImGui::EndMainMenuBar();
     }
 
-    if (ImGui::Begin("Configuration"))
-    {
-        ImGui::PlotHistogram("FPS", mFPSLog.data(), mFPSLog.size());
-        ImGui::End();
-    }
+    ImGui::PlotHistogram("FPS", mFPSLog.data(), mFPSLogSize, 0, (const char*)0, 300, 50, ImVec2(300, 50));
+    ImGui::DragInt("Graph size", &mFPSLogSize, 0.5f, 1, 100);
 
-    ImGui::ShowDemoWindow();
-	ImGui::Render();
-	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+    ImGui::Render();
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+    return ret;
 }
 
 bool ModuleEditor::CleanUp() {
@@ -83,20 +94,12 @@ bool ModuleEditor::CleanUp() {
 
 void ModuleEditor::AddFPS(const float aFPS)
 {
-    if (mFPSLog.size() < 30)
-    {
-        mFPSLog.push_back(aFPS);
+    if (mFPSLog.size() >= mFPSLogSize) {
+        mFPSLog.erase(mFPSLog.begin());
+
     }
-    else
-    {
-        for (unsigned int i = 0; i < mFPSLog.size(); i++)
-        {
-            if (i + 1 < mFPSLog.size())
-            {
-                float iCopy = mFPSLog[i + 1];
-                mFPSLog[i] = iCopy;
-            }
-        }
-        mFPSLog[mFPSLog.capacity() - 1] = aFPS;
-    }
+
+    mFPSLog.push_back(aFPS);
+
+
 }

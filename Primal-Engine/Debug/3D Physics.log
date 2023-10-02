@@ -1,34 +1,5 @@
-﻿  Application.cpp
+﻿  ModuleEditor.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': macro redefinition
 C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : see previous definition of 'M_PI'
-  Main.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': macro redefinition
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : see previous definition of 'M_PI'
-  ModuleCamera3D.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': macro redefinition
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : see previous definition of 'M_PI'
-  ModuleEditor.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': macro redefinition
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : see previous definition of 'M_PI'
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(30,2): error C2065: 'mFPSLog': undeclared identifier
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(68,37): error C2065: 'mFPSLog': undeclared identifier
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(68,53): error C2065: 'mFPSLog': undeclared identifier
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(68,67): error C2661: 'ImGui::PlotHistogram': no overloaded function takes 1 arguments
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(86,9): error C2065: 'mFPSLog': undeclared identifier
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(88,9): error C2065: 'mFPSLog': undeclared identifier
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(92,38): error C2065: 'mFPSLog': undeclared identifier
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(94,25): error C2065: 'mFPSLog': undeclared identifier
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(96,31): error C2065: 'mFPSLog': undeclared identifier
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(97,17): error C2065: 'mFPSLog': undeclared identifier
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(100,9): error C2065: 'mFPSLog': undeclared identifier
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(100,17): error C2065: 'mFPSLog': undeclared identifier
-  ModuleInput.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': macro redefinition
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : see previous definition of 'M_PI'
-  ModuleRenderer3D.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': macro redefinition
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : see previous definition of 'M_PI'
-  ModuleWindow.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': macro redefinition
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : see previous definition of 'M_PI'
-  Generating Code...
+C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(97,24): warning C4018: '>=': signed/unsigned mismatch
+  3D Physics.vcxproj -> C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\Debug\Primal-Engine.exe

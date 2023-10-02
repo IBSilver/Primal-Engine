@@ -2,21 +2,9 @@
 #include "Application.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleEditor.h"
-#include "ModuleWindow.h"
-#include "ModuleCamera3D.h"
 #include "SDL\include\SDL_opengl.h"
 #include <gl/GL.h>
 #include <gl/GLU.h>
-
-#include "ImGui/imgui.h"
-#include "ImGui/backends/imgui_impl_sdl.h"
-#include "ImGui/backends/imgui_impl_opengl3.h"
-#include <stdio.h>
-#if defined(IMGUI_IMPL_OPENGL_ES2)
-#include <SDL_opengles2.h>
-#else
-#include "SDL/include/SDL_opengl.h"
-#endif
 
 #pragma comment (lib, "opengl32.lib") /* link Microsoft OpenGL lib   */
 #pragma comment (lib, "glu32.lib") /* link Microsoft OpenGL lib   */
@@ -40,6 +28,7 @@ ModuleRenderer3D::~ModuleRenderer3D()
 // Called before render is available
 bool ModuleRenderer3D::Init()
 {
+	//App->editor->Init();
 	LOG("Creating 3D Renderer context");
 	bool ret = true;
 	
@@ -122,21 +111,6 @@ bool ModuleRenderer3D::Init()
 
 	Grid.axis = true;
 
-	// Setup Dear ImGui context
-	IMGUI_CHECKVERSION();
-	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
-	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
-
-	// Setup Dear ImGui style
-	ImGui::StyleColorsDark();
-	//ImGui::StyleColorsClassic();
-
-	// Setup Platform/Renderer backends
-	ImGui_ImplSDL2_InitForOpenGL(App->window->window, context);
-	ImGui_ImplOpenGL3_Init("#version 130");
-
 	return ret;
 }
 
@@ -161,7 +135,6 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 // PostUpdate present buffer to screen
 update_status ModuleRenderer3D::PostUpdate(float dt)
 {
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
 	Grid.Render();
 	App->editor->DrawEditor();
 	SDL_GL_SwapWindow(App->window->window);
