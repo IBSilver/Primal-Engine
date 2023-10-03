@@ -27,5 +27,10 @@ public:
 
 	std::vector<const char*> mConsoleLog;
 	bool Initializated = false;
+
+	//About
+	bool AboutOpen = false;
+	ImGuiWindowFlags window_about;
+
 };
 #endif //MODULE_EDITOR

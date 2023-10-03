@@ -1,5 +1,38 @@
-﻿  ModuleEditor.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': macro redefinition
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : see previous definition of 'M_PI'
-C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(97,24): warning C4018: '>=': signed/unsigned mismatch
-  3D Physics.vcxproj -> C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\Debug\Primal-Engine.exe
+﻿  Application.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': redefinición de macro
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : vea la definición anterior de 'M_PI'
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.h(33,19): error C3646: 'window_about': especificador de invalidación desconocido
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.h(33,31): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  Main.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': redefinición de macro
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : vea la definición anterior de 'M_PI'
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.h(33,19): error C3646: 'window_about': especificador de invalidación desconocido
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.h(33,31): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  ModuleCamera3D.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': redefinición de macro
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : vea la definición anterior de 'M_PI'
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.h(33,19): error C3646: 'window_about': especificador de invalidación desconocido
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.h(33,31): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  ModuleEditor.cpp
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.h(33,19): error C3646: 'window_about': especificador de invalidación desconocido
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.h(33,31): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': redefinición de macro
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : vea la definición anterior de 'M_PI'
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(80,13): error C2065: 'window_about': identificador no declarado
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(105,24): warning C4018: '>=': no coinciden signed/unsigned
+  ModuleInput.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': redefinición de macro
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : vea la definición anterior de 'M_PI'
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.h(33,19): error C3646: 'window_about': especificador de invalidación desconocido
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.h(33,31): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  ModuleRenderer3D.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': redefinición de macro
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : vea la definición anterior de 'M_PI'
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.h(33,19): error C3646: 'window_about': especificador de invalidación desconocido
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.h(33,31): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  ModuleWindow.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': redefinición de macro
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : vea la definición anterior de 'M_PI'
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.h(33,19): error C3646: 'window_about': especificador de invalidación desconocido
+C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.h(33,31): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+  Generando código...

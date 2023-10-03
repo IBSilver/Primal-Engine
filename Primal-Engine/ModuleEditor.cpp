@@ -69,11 +69,19 @@ bool ModuleEditor::DrawEditor() {
         }
         if (ImGui::BeginMenu("Help"))
         {
-            if (ImGui::MenuItem("About")) { ImGui::Text("We lit"); }
+            if (ImGui::MenuItem("About")) { AboutOpen = !AboutOpen; }
             ImGui::EndMenu();
         }
 
         ImGui::EndMainMenuBar();
+    }
+
+    if (AboutOpen == true) {
+        if (ImGui::Begin("About Us"), window_about) {
+            ImGui::SeparatorText("ABOUT PRIMAL ENGINE:");
+            ImGui::Text("Primal Engine v.0.0.1");
+            ImGui::End();
+        }
     }
 
     ImGui::PlotHistogram("FPS", mFPSLog.data(), mFPSLogSize);
