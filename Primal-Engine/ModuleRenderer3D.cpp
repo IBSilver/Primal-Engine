@@ -136,8 +136,11 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 update_status ModuleRenderer3D::PostUpdate(float dt)
 {
 	Grid.Render();
-	App->editor->DrawEditor();
+	ExitApp = App->editor->DrawEditor();
 	SDL_GL_SwapWindow(App->window->window);
+	if (ExitApp == false) {
+		return UPDATE_STOP;
+	}
 	return UPDATE_CONTINUE;
 }
 

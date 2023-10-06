@@ -20,7 +20,7 @@ bool ModuleEditor::Init() {
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;         // Enable Docking
-    io.ConfigFlags |= ImGuiWindowFlags_MenuBar;
+    //io.ConfigFlags |= ImGuiWindowFlags_MenuBar;
     ImGui::StyleColorsDark();
     ImGuiStyle& style = ImGui::GetStyle();
     if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
@@ -88,12 +88,74 @@ bool ModuleEditor::DrawEditor() {
         if (ImGui::BeginMenu("File"))
         {
             if (ImGui::MenuItem("Import")) {}
-            if (ImGui::MenuItem("Close", "Ctrl+Q")) { ret = false; } // <-- Exit Code
+            if (ImGui::MenuItem("Close")) 
+            { 
+                ret = false;
+            }
             ImGui::EndMenu();
         }
         if (ImGui::BeginMenu("Edit"))
         {
-            //if(ImGui::Checkbox("Depth Test Enabled", &Depth_Test))
+            bool Temp = Depth_Test;
+            ImGui::Checkbox("Depth Test Enabled", &Depth_Test);
+            if (Temp != Depth_Test)
+            {
+                if (Depth_Test == true) {
+                glEnable(GL_DEPTH_TEST);
+                }
+                if (Depth_Test == false) {
+                glDisable(GL_DEPTH_TEST);
+                }
+            }
+
+            Temp = Cull;
+            ImGui::Checkbox("Cull Enabled", &Cull);
+            if (Temp != Cull)
+            {
+                if (Cull == true) {
+                    glEnable(GL_CULL_FACE);
+                }
+                if (Cull == false) {
+                    glDisable(GL_CULL_FACE);
+                }
+            }
+
+            Temp = Lightning;
+            ImGui::Checkbox("Lightning Enabled", &Lightning);
+            if (Temp != Lightning)
+            {
+                if (Lightning == true) {
+                    glEnable(GL_LIGHTING);
+                }
+                if (Lightning == false) {
+                    glDisable(GL_LIGHTING);
+                }
+            }
+
+            Temp = colorMaterial;
+            ImGui::Checkbox("Color Material Enabled", &colorMaterial);
+            if (Temp != colorMaterial)
+            {
+                if (colorMaterial == true) {
+                    glEnable(GL_COLOR_MATERIAL);
+                }
+                if (colorMaterial == false) {
+                    glDisable(GL_COLOR_MATERIAL);
+                }
+            }
+
+            Temp = Texture2D;
+            ImGui::Checkbox("2D Texture Enabled", &Texture2D);
+            if (Temp != Texture2D)
+            {
+                if (Texture2D == true) {
+                    glEnable(GL_TEXTURE_2D);
+                }
+                if (Texture2D == false) {
+                    glDisable(GL_TEXTURE_2D);
+                }
+            }
+
             ImGui::EndMenu();
         }
         if (ImGui::BeginMenu("Select"))
@@ -122,16 +184,7 @@ bool ModuleEditor::DrawEditor() {
 
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-    //ImGui::ShowDemoWindow();
-
-    //if (Depth_Test == true) {
-    //    glEnable(GL_DEPTH_TEST);
-    //}
-    //if (Depth_Test == false) {
-    //    glDisable(GL_DEPTH_TEST);
-    //}
-
+    
     return ret;
 }
 
