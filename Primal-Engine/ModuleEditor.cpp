@@ -20,6 +20,7 @@ bool ModuleEditor::Init() {
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;         // Enable Docking
+    io.ConfigFlags |= ImGuiWindowFlags_MenuBar;
     ImGui::StyleColorsDark();
     ImGuiStyle& style = ImGui::GetStyle();
     if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
@@ -38,7 +39,38 @@ bool ModuleEditor::DrawEditor() {
 
     if (Initializated == false) {
         Initializated = true;
+        //These parameters are initialized here since for some reason they arent corrrectly executed in the Init() function
         ImGui_ImplOpenGL3_Init();
+
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+        SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+        SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
+        SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+
+        GLenum err = glewInit();
+        // … check for errors
+        LOG("Using Glew %s", glewGetString(GLEW_VERSION));
+        // Should be 2.0
+
+        glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+        glClearDepth(1.0f);
+        glClearColor(0.f, 0.f, 0.f, 1.f);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        glEnable(GL_DEPTH_TEST);
+        glEnable(GL_CULL_FACE);
+        glEnable(GL_LIGHTING);
+        glEnable(GL_COLOR_MATERIAL);
+        glEnable(GL_TEXTURE_2D);
+        
+        LOG("Vendor: %s", glGetString(GL_VENDOR));
+        LOG("Renderer: %s", glGetString(GL_RENDERER));
+        LOG("OpenGL version supported %s", glGetString(GL_VERSION));
+        LOG("GLSL: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
+
+        //glMatrixMode(GL_PROJECTION);
+        //glLoadIdentity();
     }
 
     bool ret = true;
@@ -61,6 +93,7 @@ bool ModuleEditor::DrawEditor() {
         }
         if (ImGui::BeginMenu("Edit"))
         {
+            //if(ImGui::Checkbox("Depth Test Enabled", &Depth_Test))
             ImGui::EndMenu();
         }
         if (ImGui::BeginMenu("Select"))
@@ -77,7 +110,7 @@ bool ModuleEditor::DrawEditor() {
     }
 
     if (AboutOpen == true) {
-        if (ImGui::Begin("About Us"), window_about) {
+        if (ImGui::Begin("About Us")) {
             ImGui::SeparatorText("ABOUT PRIMAL ENGINE:");
             ImGui::Text("Primal Engine v.0.0.1");
             ImGui::End();
@@ -90,6 +123,15 @@ bool ModuleEditor::DrawEditor() {
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
+    //ImGui::ShowDemoWindow();
+
+    //if (Depth_Test == true) {
+    //    glEnable(GL_DEPTH_TEST);
+    //}
+    //if (Depth_Test == false) {
+    //    glDisable(GL_DEPTH_TEST);
+    //}
+
     return ret;
 }
 
@@ -97,6 +139,7 @@ bool ModuleEditor::CleanUp() {
 	ImGui_ImplOpenGL3_Shutdown();
 	ImGui_ImplSDL2_Shutdown();
 	ImGui::DestroyContext();
+    
 	return false;
 }
 
