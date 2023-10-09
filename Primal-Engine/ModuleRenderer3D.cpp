@@ -109,6 +109,10 @@ bool ModuleRenderer3D::Init()
 	// Projection matrix for
 	OnResize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
+	//uint my_id = 0;
+	//glGenBuffers(1, (GLuint*)&(my_id));
+	//glBindBuffer(GL_ARRAY_BUFFER, my_id);
+	//glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 8 * 3, vertices, GL_STATIC_DRAW);
 	Grid.axis = true;
 
 	return ret;
@@ -128,7 +132,7 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 
 	for(uint i = 0; i < MAX_LIGHTS; ++i)
 		lights[i].Render();
-
+	DrawCube();
 	return UPDATE_CONTINUE;
 }
 
@@ -141,6 +145,7 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 	if (ExitApp == false) {
 		return UPDATE_STOP;
 	}
+
 	return UPDATE_CONTINUE;
 }
 
@@ -168,4 +173,79 @@ void ModuleRenderer3D::OnResize(int width, int height)
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+}
+
+void ModuleRenderer3D::DrawCube()
+{
+	GLfloat Vertices[16][3] =
+	{   // x     y     z
+		{-1, -1,  1}, // 1  left    First Strip
+		{-1.0,  1.0,  1.0}, // 3
+		{-1.0, -1.0, -1.0}, // 0s
+		{-1.0,  1.0, -1.0}, // 2
+		{ 1.0, -1.0, -1.0}, // 4  back
+		{ 1.0,  1.0, -1.0}, // 6
+		{ 1.0, -1.0,  1.0}, // 5  right
+		{ 1.0,  1.0,  1.0}, // 7
+		{ 1.0,  1.0, -1.0}, // 6  top     Second Strip
+		{-1.0,  1.0, -1.0}, // 2
+		{ 1.0,  1.0,  1.0}, // 7
+		{-1.0,  1.0,  1.0}, // 3
+		{ 1.0, -1.0,  1.0}, // 5  front
+		{-1.0, -1.0,  1.0}, // 1
+		{ 1.0, -1.0, -1.0}, // 4  bottom
+		{-1.0, -1.0, -1.0}  // 0
+	};
+
+	glBegin(GL_TRIANGLES);  // draw a cube 
+
+	glVertex3fv(&Vertices[0][0]);
+	glVertex3fv(&Vertices[1][0]);
+	glVertex3fv(&Vertices[2][0]);
+
+	glVertex3fv(&Vertices[2][0]);
+	glVertex3fv(&Vertices[3][0]);
+	glVertex3fv(&Vertices[1][0]);
+
+	glVertex3fv(&Vertices[2][0]);
+	glVertex3fv(&Vertices[3][0]);
+	glVertex3fv(&Vertices[4][0]);
+
+	glVertex3fv(&Vertices[4][0]);
+	glVertex3fv(&Vertices[5][0]);
+	glVertex3fv(&Vertices[3][0]);
+
+	glVertex3fv(&Vertices[4][0]);
+	glVertex3fv(&Vertices[5][0]);
+	glVertex3fv(&Vertices[6][0]);
+
+	glVertex3fv(&Vertices[5][0]);
+	glVertex3fv(&Vertices[6][0]);
+	glVertex3fv(&Vertices[7][0]);
+
+	glVertex3fv(&Vertices[7][0]);
+	glVertex3fv(&Vertices[8][0]);
+	glVertex3fv(&Vertices[9][0]);
+
+	glVertex3fv(&Vertices[1][0]);
+	glVertex3fv(&Vertices[7][0]);
+	glVertex3fv(&Vertices[9][0]);
+
+	glVertex3fv(&Vertices[0][0]);
+	glVertex3fv(&Vertices[2][0]);
+	glVertex3fv(&Vertices[4][0]);
+
+	glVertex3fv(&Vertices[0][0]);
+	glVertex3fv(&Vertices[4][0]);
+	glVertex3fv(&Vertices[6][0]);
+
+	glVertex3fv(&Vertices[0][0]);
+	glVertex3fv(&Vertices[6][0]);
+	glVertex3fv(&Vertices[7][0]);
+
+	glVertex3fv(&Vertices[0][0]);
+	glVertex3fv(&Vertices[7][0]);
+	glVertex3fv(&Vertices[1][0]);
+
+	glEnd();
 }
