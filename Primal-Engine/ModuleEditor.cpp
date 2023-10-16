@@ -49,8 +49,6 @@ bool ModuleEditor::DrawEditor() {
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
-        GLenum err = glewInit();
-        // … check for errors
         LOG("Using Glew %s", glewGetString(GLEW_VERSION));
         // Should be 2.0
 
