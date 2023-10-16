@@ -42,8 +42,7 @@ static const GLuint CubeIndices[] = {
 	4, 0, 7, 7, 0, 3,
 	3, 2, 7, 7, 2, 6,
 	4, 5, 0, 0, 5, 1
-};
-// Called before render is available
+};// Called before render is available
 bool ModuleRenderer3D::Init()
 {
 	//App->editor->Init();
@@ -132,10 +131,10 @@ bool ModuleRenderer3D::Init()
 
 	VBO = 0;
 	EBO = 0;
-	VAO = 0;
+	//VAO = 0;
 	glGenBuffers(1, &VBO);
 	glGenBuffers(1, &EBO);
-	glGenVertexArrays(1, &VAO);
+	//glGenVertexArrays(1, &VAO);
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(CubeVertices), CubeVertices, GL_STATIC_DRAW);
@@ -143,12 +142,12 @@ bool ModuleRenderer3D::Init()
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(CubeIndices), CubeIndices, GL_STATIC_DRAW);
-	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-	glBindVertexArray(VAO);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
-	glBindVertexArray(0);
+	//glBindVertexArray(VAO);
+	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	//glEnableVertexAttribArray(0);
+	//glBindVertexArray(0);
 
 	return ret;
 }
@@ -175,8 +174,12 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 update_status ModuleRenderer3D::PostUpdate(float dt)
 {
 	Grid.Render();
-	//glBindVertexArray(VAO);
-	//glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, NULL);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glVertexPointer(3, GL_FLOAT, 0, NULL);
+	glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, NULL);
 
 	ExitApp = App->editor->DrawEditor();
 
