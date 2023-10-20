@@ -417,6 +417,9 @@
     <ClInclude Include="assimp\include\NullLogger.hpp">
       <Filter>Sources\assimp\include</Filter>
     </ClInclude>
+    <ClInclude Include="Loader.h">
+      <Filter>Sources\Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleCamera3D.cpp">
@@ -577,6 +580,9 @@
     </ClCompile>
     <ClCompile Include="Parson\parson.c">
       <Filter>Sources\Parson</Filter>
+    </ClCompile>
+    <ClCompile Include="Loader.cpp">
+      <Filter>Sources\Modules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

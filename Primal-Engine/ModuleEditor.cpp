@@ -3,11 +3,6 @@
 #include "ImGui/backends/imgui_impl_opengl3.h"
 #include "ImGui/backends/imgui_impl_sdl.h"
 #include "Application.h"
-#include "assimp/include/cimport.h"
-#include "assimp/include/scene.h"
-#include "assimp/include/postprocess.h"
-
-#pragma comment (lib, "assimp/libx86/assimp.lib")
 
 ModuleEditor::ModuleEditor(Application* app, bool start_enabled) : Module(app, start_enabled) {
 
@@ -62,22 +57,6 @@ bool ModuleEditor::Init() {
     LOG("OpenGL version supported %s", glGetString(GL_VERSION));
     LOG("GLSL: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
     
-    //Assimp
-    //Stream log messages to Debug window
-    struct aiLogStream stream;
-    stream = aiGetPredefinedLogStream(aiDefaultLogStream_DEBUGGER, nullptr);
-    aiAttachLogStream(&stream);
-
-    //const aiScene* scene = aiImportFile("FBX/Test.fbx", aiProcessPreset_TargetRealtime_MaxQuality);
-    //if (scene != nullptr && aiScene > HasMeshes())
-    //{
-    //    // Use scene->mNumMeshes to iterate on scene->mMeshes array
-    //    aiReleaseImport(scene);
-    //}
-    //else {
-    //    LOG("Error loading scene");
-    //}
-
     return true;
 }
 
@@ -202,9 +181,6 @@ bool ModuleEditor::CleanUp() {
 	ImGui_ImplOpenGL3_Shutdown();
 	ImGui_ImplSDL2_Shutdown();
 	ImGui::DestroyContext();
-
-    //Assimp
-    aiDetachAllLogStreams();
     
 	return false;
 }

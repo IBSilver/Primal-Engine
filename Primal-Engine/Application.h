@@ -8,6 +8,7 @@
 #include "ModuleInput.h"
 #include "ModuleWindow.h"
 #include "Module.h"
+#include "Loader.h"
 
 #include<vector>
 
@@ -19,6 +20,7 @@ public:
 	ModuleRenderer3D* renderer3D;
 	ModuleCamera3D* camera;
 	ModuleEditor* editor;
+	Loader* loader;
 
 private:
 
