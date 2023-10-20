@@ -1,5 +1,6 @@
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\vc142.pdb
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\vc142.idb
+c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\parson.obj
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\frustum.obj
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\cylinder.obj
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\cone.obj
@@ -45,14 +46,12 @@ c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\primitive.ob
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\modulewindow.obj
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\modulerenderer3d.obj
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\moduleinput.obj
-c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\moduleeditor.obj
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\modulecamera3d.obj
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\clock.obj
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\transformops.obj
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\ssemath.obj
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\quat.obj
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\polynomial.obj
-c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\parson.obj
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\primal-engine.exe
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\primal-engine.ilk
 c:\users\maksymp\documents\github\primal-engine\primal-engine\debug\primal-engine.pdb

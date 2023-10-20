@@ -179,7 +179,7 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glVertexPointer(3, GL_FLOAT, 0, NULL);
-	glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, NULL);
+	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, NULL);
 
 	ExitApp = App->editor->DrawEditor();
 

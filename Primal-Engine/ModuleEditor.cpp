@@ -3,6 +3,11 @@
 #include "ImGui/backends/imgui_impl_opengl3.h"
 #include "ImGui/backends/imgui_impl_sdl.h"
 #include "Application.h"
+//#include "assimp/cimport.h"
+//#include "assimp/scene.h"
+//#include "assimp/postprocess.h"
+
+#pragma comment (lib, "assimp/libx86/assimp.lib")
 
 ModuleEditor::ModuleEditor(Application* app, bool start_enabled) : Module(app, start_enabled) {
 
