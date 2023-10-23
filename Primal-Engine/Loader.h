@@ -5,12 +5,21 @@
 
 #include "Module.h"
 #include "Globals.h"
-#include <vector>
 #include "Glew/include/glew.h"
+#include "assimp/include/cimport.h"
+#include "assimp/include/scene.h"
+#include "assimp/include/postprocess.h"
+
 
 class Loader : public Module
 {
 public:
+
+	struct PrimalMesh {
+		int NumVertices, numIndices;
+		float* Vertices;
+		uint* Indices;
+	};
 
 	Loader(Application* app, bool start_enabled = true);
 	~Loader();
@@ -32,6 +41,10 @@ public:
 	uint id_vertex = 0; // unique vertex in VRAM
 	uint num_vertex = 0;
 	float* vertex = nullptr;
+	int NumMeshes;
 
+	//Max 50 meshes
+	aiMesh* OurMeshes[50];
+	PrimalMesh MyMeshes[50];
 };
 #endif //LOADER

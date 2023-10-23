@@ -124,7 +124,6 @@ bool ModuleRenderer3D::Init()
 
 		glewInit();
 	}
-
 	// Projection matrix for
 	OnResize(SCREEN_WIDTH, SCREEN_HEIGHT);
 	Grid.axis = true;
