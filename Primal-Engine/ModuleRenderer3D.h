@@ -2,6 +2,7 @@
 #include "Module.h"
 #include "Globals.h"
 #include "Light.h"
+#include "Loader.h"
 
 #include "MathGeoLib/include/Math/float3x3.h"
 #include "MathGeoLib/include/Math/float4x4.h"
@@ -49,7 +50,7 @@ public:
 		{ 1.0, -1.0, -1.0}, // 4  bottom
 		{-1.0, -1.0, -1.0}  // 0
 	};
-
+	Loader* MeshLoader;
 	Light lights[MAX_LIGHTS];
 	SDL_GLContext context;
 	CPlane Grid;

@@ -1,67 +1,82 @@
-#include "Application.h"
 #include "Loader.h"
 
-#pragma comment (lib, "assimp/libx86/assimp.lib")
-
-Loader::Loader(Application* app, bool start_enabled) : Module(app, start_enabled) {
+void Loader::LoadInit() {
 
 }
 
-Loader::~Loader() {
+void Loader::LoadPrimalMesh(const char* filePath) {
+	const aiScene* scene = aiImportFile(filePath, aiProcessPreset_TargetRealtime_MaxQuality);
+	if (scene != nullptr && scene->HasMeshes())
+	{
 
+		for (int i = 0; i < scene->mNumMeshes; i++) {
+
+			PrimalMesh* meshData = new PrimalMesh;
+
+			meshData->NUMvertex = scene->mMeshes[i]->mNumVertices;
+			meshData->vertex = new float[meshData->NUMvertex * 3];
+			memcpy(meshData->vertex, scene->mMeshes[i]->mVertices, sizeof(float) * meshData->NUMvertex * 3);
+			LOG("New mesh with %d vertices", meshData->NUMvertex);
+
+			if (scene->mMeshes[i]->HasFaces())
+			{
+				meshData->NUMindex = scene->mMeshes[i]->mNumFaces * 3;
+				meshData->index = new uint[meshData->NUMindex]; 
+				for (uint j = 0; j < scene->mMeshes[i]->mNumFaces; ++j)
+				{
+					if (scene->mMeshes[i]->mFaces[j].mNumIndices != 3) {
+						LOG("WARNING, geometry face with != 3 indices!");
+
+					}
+					else {
+						memcpy(&meshData->index[j * 3], scene->mMeshes[i]->mFaces[j].mIndices, 3 * sizeof(uint));
+
+					}
+				}
+			}
+
+			meshArray.push_back(meshData);
+		}
+
+		aiReleaseImport(scene);
+	}
+	else {
+		LOG("Error loading scene % s", filePath);
+	}
 }
 
-bool Loader::Init() {
-    //Assimp
-    //Stream log messages to Debug window
-    struct aiLogStream stream;
-    stream = aiGetPredefinedLogStream(aiDefaultLogStream_DEBUGGER, nullptr);
-    aiAttachLogStream(&stream);
+void Loader::LoadBuffers() {
 
-    const aiScene* scene = aiImportFile("../FBX/Test.fbx", aiProcessPreset_TargetRealtime_MaxQuality);
-    if (scene != nullptr && scene->HasMeshes())
-    {
-        // Use scene->mNumMeshes to iterate on scene->mMeshes array
-        for (int i = 0; i < scene->mNumMeshes; i++) {
-            OurMeshes[i] = scene->mMeshes[i];
-            LOG("New mesh with %d vertices", OurMeshes[i]->mNumVertices);
-        }
-        LOG("Total meshes loaded: %d ", scene->mNumMeshes);
-        NumMeshes = scene->mNumMeshes;
-        aiReleaseImport(scene);
-    }
-    else {
-        LOG("Error loading scene");
-    }
+	for (int i = 0; i < meshArray.size(); ++i) {
 
-    // copy vertices
-    for (int i = 0; i < NumMeshes; i++) {
-        MyMeshes[i].NumVertices = OurMeshes[i]->mNumVertices;
-        MyMeshes[i].Vertices = new float[OurMeshes[i]->mNumVertices * 3];
-        memcpy(MyMeshes[i].Vertices, OurMeshes[i]->mVertices, sizeof(float) * MyMeshes[i].NumVertices * 3);
-        if (OurMeshes[i]->HasFaces()) {
-            MyMeshes[i].numIndices = OurMeshes[i]->mNumFaces * 3;
-            MyMeshes[i].Indices = new uint[MyMeshes[i].numIndices];
-            for (uint j = 0; j < OurMeshes[j]->mNumFaces; ++j)
-            {
-                if (OurMeshes[i]->mFaces[j].mNumIndices != 3) {
-                    LOG("WARNING, geometry face with != 3 indices!");
-                }
-                else {
-                    //memcpy(&m.indices[i * 3], new_mesh->mFaces[i].mIndices, 3 * sizeof(uint));
-                }
-            }
-        }
-    }
-    LOG("Mesh 1 %d indices", MyMeshes[0].Vertices);
-    LOG("Mesh 2 %d indices", MyMeshes[1].Vertices);
+		glGenBuffers(1, (GLuint*)&(meshArray.at(i)->VBO));
+		glBindBuffer(GL_ARRAY_BUFFER, meshArray.at(i)->VBO);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * meshArray.at(i)->NUMvertex * 3, meshArray.at(i)->vertex, GL_STATIC_DRAW);
 
-    return true;
+		glGenBuffers(1, (GLuint*)&(meshArray.at(i)->EBO));
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, meshArray.at(i)->EBO);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * meshArray.at(i)->NUMindex * 3, meshArray.at(i)->index, GL_STATIC_DRAW);
+
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+	}
 }
 
-bool Loader::CleanUp() {
-    //Assimp
-    aiDetachAllLogStreams();
+void Loader::DrawPrimalMeshes() {
 
-    return false;
+	for (int i = 0; i < meshArray.size(); ++i) {
+
+		glBindBuffer(GL_ARRAY_BUFFER, meshArray[i]->VBO);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, meshArray[i]->EBO);
+		glEnableClientState(GL_VERTEX_ARRAY);
+		glVertexPointer(3, GL_FLOAT, 0, NULL);
+		glDrawElements(GL_TRIANGLES, meshArray[i]->NUMindex, GL_UNSIGNED_INT, NULL);
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+	}
+
+	//DrawNormals();
+
 }
