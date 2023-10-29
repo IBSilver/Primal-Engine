@@ -3,7 +3,6 @@
 #ifndef LOADER
 #define LOADER
 
-#include "Module.h"
 #include "Globals.h"
 #include <vector>
 #include "Glew/include/glew.h"
@@ -28,19 +27,21 @@ struct PrimalMesh {
 };
 
 
-class Loader : public Module
+class Loader
 {
 public:
 
-	std::vector<PrimalMesh*> meshArray;
-
-	void LoadInit();
+	Loader();
 
 	void LoadPrimalMesh(const char* filePath);
 
 	void LoadBuffers();
 
 	void DrawPrimalMeshes();
+private:
+	std::vector<PrimalMesh*> PrimalMeshArray;
+	bool normals = false;
+
 };
 
 #endif //LOADER

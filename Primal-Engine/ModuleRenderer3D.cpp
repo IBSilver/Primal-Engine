@@ -129,27 +129,28 @@ bool ModuleRenderer3D::Init()
 	OnResize(SCREEN_WIDTH, SCREEN_HEIGHT);
 	Grid.axis = true;
 
-	VBO = 0;
-	EBO = 0;
-	//VAO = 0;
-	glGenBuffers(1, &VBO);
-	glGenBuffers(1, &EBO);
-	//glGenVertexArrays(1, &VAO);
+	//VBO = 0;
+	//EBO = 0;
+	////VAO = 0;
+	//glGenBuffers(1, &VBO);
+	//glGenBuffers(1, &EBO);
+	////glGenVertexArrays(1, &VAO);
 
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(CubeVertices), CubeVertices, GL_STATIC_DRAW);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	//glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	//glBufferData(GL_ARRAY_BUFFER, sizeof(CubeVertices), CubeVertices, GL_STATIC_DRAW);
+	//glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(CubeIndices), CubeIndices, GL_STATIC_DRAW);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	//glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(CubeIndices), CubeIndices, GL_STATIC_DRAW);
+	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-	//glBindVertexArray(VAO);
-	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	//glEnableVertexAttribArray(0);
-	//glBindVertexArray(0);
-	//MeshLoader->LoadPrimalMesh("../FBX/Test.fbx");
-	//MeshLoader->LoadBuffers();
+	////glBindVertexArray(VAO);
+	////glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	////glEnableVertexAttribArray(0);
+	////glBindVertexArray(0);
+	MeshLoader = new Loader();
+	MeshLoader->LoadPrimalMesh("../FBX/Test.fbx");
+	MeshLoader->LoadBuffers();
 
 	return ret;
 }
@@ -176,7 +177,7 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 update_status ModuleRenderer3D::PostUpdate(float dt)
 {
 	Grid.Render();
-	//MeshLoader->DrawPrimalMeshes();
+	MeshLoader->DrawPrimalMeshes();
 
 	//glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
