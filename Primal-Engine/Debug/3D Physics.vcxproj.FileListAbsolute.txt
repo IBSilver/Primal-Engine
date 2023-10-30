@@ -1,3 +1,4 @@
 C:\Users\ivanv\Documents\GitHub\Primal-Engine\Primal-Engine\Debug\Primal-Engine.exe
 C:\Users\maksymp\Documents\GitHub\Primal-Engine\Primal-Engine\Debug\Primal-Engine.exe
 C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\Debug\Primal-Engine.exe
+C:\Users\ivanbs1\Documents\GitHub\Primal-Engine\Primal-Engine\Debug\Primal-Engine.exe
