@@ -62,47 +62,7 @@ update_status ModuleCamera3D::Update(float dt)
 	Reference += newPos;
 
 	// Mouse motion ----------------
-
-	if (App->input->GetKey(SDL_SCANCODE_LALT) == KEY_REPEAT && App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_REPEAT)
-	{
-		int dx = -App->input->GetMouseXMotion();
-		int dy = -App->input->GetMouseYMotion();
-
-		float Sensitivity = 0.35f * dt;
-
-		Position -= Reference;
-
-		if (dx != 0)
-		{
-			float DeltaX = (float)dx * Sensitivity;
-
-			float3 rotationAxis(0.0f, 1.0f, 0.0f);
-			Quat rotationQuat = Quat::RotateAxisAngle(rotationAxis, DeltaX);
-
-			X = rotationQuat * X;
-			Y = rotationQuat * Y;
-			Z = rotationQuat * Z;
-		}
-
-		if (dy != 0)
-		{
-			float DeltaY = (float)dy * Sensitivity;
-
-			Quat rotationQuat = Quat::RotateAxisAngle(X, DeltaY);
-
-			Y = rotationQuat * Y;
-			Z = rotationQuat * Z;
-
-			if (Y.y < 0.0f)
-			{
-				Z = float3(0.0f, Z.y > 0.0f ? 1.0f : -1.0f, 0.0f);
-				Y = Z.Cross(X);
-			}
-		}
-
-		Position = Reference + Z * Position.Length();
-	}
-
+	
 	if (App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT)
 	{
 		if (App->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
@@ -157,6 +117,56 @@ update_status ModuleCamera3D::Update(float dt)
 		}
 
 		Position = Reference + Z * Position.Length();
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_LALT) == KEY_REPEAT && App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_REPEAT)
+	{
+		int dx = -App->input->GetMouseXMotion();
+		int dy = -App->input->GetMouseYMotion();
+
+		float Sensitivity = 0.35f * dt;
+
+		Position -= Reference;
+
+		if (dx != 0)
+		{
+			float DeltaX = (float)dx * Sensitivity;
+
+			float3 rotationAxis(0.0f, 1.0f, 0.0f);
+			Quat rotationQuat = Quat::RotateAxisAngle(rotationAxis, DeltaX);
+
+			X = rotationQuat * X;
+			Y = rotationQuat * Y;
+			Z = rotationQuat * Z;
+		}
+
+		if (dy != 0)
+		{
+			float DeltaY = (float)dy * Sensitivity;
+
+			Quat rotationQuat = Quat::RotateAxisAngle(X, DeltaY);
+
+			Y = rotationQuat * Y;
+			Z = rotationQuat * Z;
+
+			if (Y.y < 0.0f)
+			{
+				Z = float3(0.0f, Z.y > 0.0f ? 1.0f : -1.0f, 0.0f);
+				Y = Z.Cross(X);
+			}
+		}
+
+		Position = Reference + Z * Position.Length();
+	}
+
+	//Mouse wheel
+	if (App->input->GetMouseZ() != 0)
+	{
+		float speed = 20.0f * dt;
+		if (App->input->GetMouseZ() < 0) newPos += Z * speed;
+		if (App->input->GetMouseZ() > 0) newPos -= Z * speed;
+		Position += newPos;
+		Reference += newPos;
 	}
 
 	LookAt(Reference);
