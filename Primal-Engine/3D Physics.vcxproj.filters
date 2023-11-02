@@ -55,6 +55,15 @@
     <Filter Include="Sources\assimp\include">
       <UniqueIdentifier>{0bf45eca-0b58-4799-8e09-0977c4261f0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\DevIL">
+      <UniqueIdentifier>{a9a34d88-9cd5-4b12-b15d-cbc04c7ede1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\DevIL\include">
+      <UniqueIdentifier>{68ea1a3d-74fc-4785-b371-ba4b9d9f3260}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\DevIL\libx86">
+      <UniqueIdentifier>{ee2f3c1d-6977-4541-89ec-b786e55dd81f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -420,6 +429,30 @@
     <ClInclude Include="Loader.h">
       <Filter>Sources\Modules</Filter>
     </ClInclude>
+    <ClInclude Include="DevIL\include\devil_cpp_wrapper.hpp">
+      <Filter>Sources\DevIL\include</Filter>
+    </ClInclude>
+    <ClInclude Include="DevIL\include\devil_internal_exports.h">
+      <Filter>Sources\DevIL\include</Filter>
+    </ClInclude>
+    <ClInclude Include="DevIL\include\il.h">
+      <Filter>Sources\DevIL\include</Filter>
+    </ClInclude>
+    <ClInclude Include="DevIL\include\il_wrap.h">
+      <Filter>Sources\DevIL\include</Filter>
+    </ClInclude>
+    <ClInclude Include="DevIL\include\ilu.h">
+      <Filter>Sources\DevIL\include</Filter>
+    </ClInclude>
+    <ClInclude Include="DevIL\include\ilu_region.h">
+      <Filter>Sources\DevIL\include</Filter>
+    </ClInclude>
+    <ClInclude Include="DevIL\include\ilut.h">
+      <Filter>Sources\DevIL\include</Filter>
+    </ClInclude>
+    <ClInclude Include="DevIL\include\ilut_config.h">
+      <Filter>Sources\DevIL\include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleCamera3D.cpp">
@@ -584,6 +617,9 @@
     <ClCompile Include="Loader.cpp">
       <Filter>Sources\Modules</Filter>
     </ClCompile>
+    <ClCompile Include="DevIL\include\luadevil.c">
+      <Filter>Sources\DevIL\include</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="MathGeoLib\include\Geometry\KDTree.inl">
@@ -625,5 +661,28 @@
     <None Include="assimp\include\matrix4x4.inl">
       <Filter>Sources\assimp\include</Filter>
     </None>
+    <None Include="DevIL\include\build-lua">
+      <Filter>Sources\DevIL\include</Filter>
+    </None>
+    <None Include="DevIL\include\build-python">
+      <Filter>Sources\DevIL\include</Filter>
+    </None>
+    <None Include="DevIL\include\DevIL.i">
+      <Filter>Sources\DevIL\include</Filter>
+    </None>
+    <None Include="DevIL\include\stamp-h.in">
+      <Filter>Sources\DevIL\include</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="DevIL\libx86\DevIL.lib">
+      <Filter>Sources\DevIL\libx86</Filter>
+    </Library>
+    <Library Include="DevIL\libx86\ILU.lib">
+      <Filter>Sources\DevIL\libx86</Filter>
+    </Library>
+    <Library Include="DevIL\libx86\ILUT.lib">
+      <Filter>Sources\DevIL\libx86</Filter>
+    </Library>
   </ItemGroup>
 </Project>

@@ -11,6 +11,14 @@
 //todo: REMOVE this before 1st delivery!!
 #include "glmath.h"
 
+//#include "DevIL/include/ilut.h"
+//#include "DevIL/include/ilu.h"
+//#include "DevIL/include/il.h"
+//
+//#pragma comment(lib, "Devil/libx86/DevIL.lib")
+//#pragma comment(lib, "Devil/libx86/ILU.lib")
+//#pragma comment(lib, "Devil/libx86/ILUT.lib")
+
 #define MAX_LIGHTS 8
 
 class ModuleRenderer3D : public Module
@@ -27,6 +35,8 @@ public:
 	void OnResize(int width, int height);
 
 	void DrawCube();
+
+	GLuint ImportTexture(const char* filePath);
 
 public:
 	uint VBO, EBO, VAO;
@@ -57,4 +67,6 @@ public:
 	bool ExitApp = true;
 	//You won't need this after using Frustum
 	mat4x4 ProjectionMatrix;
+	//Textures
+	GLuint textureID, width, heigth;
 };
