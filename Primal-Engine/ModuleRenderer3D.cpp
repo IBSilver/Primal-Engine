@@ -174,6 +174,11 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 	for(uint i = 0; i < MAX_LIGHTS; ++i)
 		lights[i].Render();
 	//DrawCube();
+	if (App->input->DROP == true) {
+		App->input->DROP = false;
+		MeshLoader->LoadPrimalMesh(App->input->filepathDROP);
+		MeshLoader->LoadBuffers();
+	}
 	return UPDATE_CONTINUE;
 }
 

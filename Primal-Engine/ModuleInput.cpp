@@ -115,10 +115,10 @@ update_status ModuleInput::PreUpdate(float dt)
 			}
 			break;
 			case SDL_DROPFILE:
-				dropped_filedir = e.drop.file;
-				dropped = true;
+				DROP = true;
+				filepathDROP = e.drop.file;
 
-				SDL_free(dropped_filedir);
+				SDL_free(filepathDROP);
 			break;
 		}
 	}
