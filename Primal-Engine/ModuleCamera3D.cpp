@@ -25,7 +25,7 @@ bool ModuleCamera3D::Start()
 {
 	LOG("Setting up the camera");
 	bool ret = true;
-
+	LookAt(Reference);
 	return ret;
 }
 
@@ -43,37 +43,44 @@ update_status ModuleCamera3D::Update(float dt)
 	// Implement a debug camera with keys and mouse
 	// Now we can make this movememnt frame rate independant!
 
+	//Basic camera movement
 	float3 newPos(0, 0, 0);
 	float speed = 3.0f * dt;
 	if (App->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
 		speed = 8.0f * dt;
 
-	if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT) newPos -= Z * speed;
-	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT) newPos += Z * speed;
+	if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT) newPos -= Z * speed; //Zoom in
+	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT) newPos += Z * speed; //Zoom out
 
-	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT) newPos -= X * speed;
-	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT) newPos += X * speed;
+	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT) newPos -= X * speed; //Move left
+	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT) newPos += X * speed; //Move right
 
+	//Return to game object
+	if (App->input->GetKey(SDL_SCANCODE_F) == KEY_REPEAT)
+	{
+		Reference = float3(0, 0, 0);
+		Position = Reference + float3(5, 5, 5);
+		LookAt(Reference);
+	}
+	
 	// Mouse motion ----------------
 	
 	//Flythrough mode
 	if (App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT)
 	{
-		if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT) newPos.y += speed;
-		if (App->input->GetKey(SDL_SCANCODE_E) == KEY_REPEAT) newPos.y -= speed;
+		if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT) newPos.y += speed; //Move up
+		if (App->input->GetKey(SDL_SCANCODE_E) == KEY_REPEAT) newPos.y -= speed; //Move down
 
-		if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) newPos -= Z * speed;
-		if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) newPos += Z * speed;
+		if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) newPos -= Z * speed; //Zoom in
+		if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) newPos += Z * speed; //Zoom out
 
-		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) newPos -= X * speed;
-		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) newPos += X * speed;
+		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) newPos -= X * speed; //Move left
+		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) newPos += X * speed; //Move right
 
 		int dx = -App->input->GetMouseXMotion();
 		int dy = -App->input->GetMouseYMotion();
 
 		float Sensitivity = 0.35f * dt;
-
-		Position -= Reference;
 
 		if (dx != 0)
 		{
@@ -102,8 +109,6 @@ update_status ModuleCamera3D::Update(float dt)
 				Y = Z.Cross(X);
 			}
 		}
-
-		Position = Reference + Z * Position.Length();
 	}
 	
 	//Orbit camera
@@ -147,7 +152,7 @@ update_status ModuleCamera3D::Update(float dt)
 		Position = Reference + Z * Position.Length();
 	}
 
-	//Pan with mouse wheel button
+	//Pan movement (x & y) with mouse wheel button
 	if (App->input->GetMouseButton(SDL_BUTTON_MIDDLE) == KEY_REPEAT)
 	{
 		int dx = -App->input->GetMouseXMotion();
@@ -171,11 +176,10 @@ update_status ModuleCamera3D::Update(float dt)
 	if (App->input->GetMouseZ() != 0)
 	{
 		float speed = 20.0f * dt;
-		if (App->input->GetMouseZ() < 0) newPos += Z * speed;
-		if (App->input->GetMouseZ() > 0) newPos -= Z * speed;
+		if (App->input->GetMouseZ() > 0) newPos -= Z * speed; //Zoom in
+		if (App->input->GetMouseZ() < 0) newPos += Z * speed; //Zoom out
 	}
 
-	LookAt(Reference);
 	Position += newPos;
 	Reference += newPos;
 
