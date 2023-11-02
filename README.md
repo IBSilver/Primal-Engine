@@ -40,3 +40,5 @@ While Right Clicking:
 The program sometimes does not open due to a buffer issue that we do not understand.
 
 The program takes the textures but does not load them correctly.
+
+With the release, do not load the house from the beginning, you have to add it with drag & drop
