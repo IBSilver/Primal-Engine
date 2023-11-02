@@ -26,24 +26,7 @@ ModuleRenderer3D::ModuleRenderer3D(Application* app, bool start_enabled) : Modul
 ModuleRenderer3D::~ModuleRenderer3D()
 {}
 
-static const GLfloat CubeVertices[] = {
-	-1, -1, -1,
-	1, -1, -1,
-	1, 1, -1,
-	-1, 1, -1,
-	-1, -1, 1,
-	1, -1, 1,
-	1, 1, 1,
-	-1, 1, 1
-};
-static const GLuint CubeIndices[] = {
-	0, 1, 3, 3, 1, 2,
-	1, 5, 2, 2, 5, 6,
-	5, 4, 6, 6, 4, 7,
-	4, 0, 7, 7, 0, 3,
-	3, 2, 7, 7, 2, 6,
-	4, 5, 0, 0, 5, 1
-};// Called before render is available
+// Called before render is available
 bool ModuleRenderer3D::Init()
 {
 	//App->editor->Init();
@@ -129,25 +112,6 @@ bool ModuleRenderer3D::Init()
 	OnResize(SCREEN_WIDTH, SCREEN_HEIGHT);
 	Grid.axis = true;
 
-	//VBO = 0;
-	//EBO = 0;
-	////VAO = 0;
-	//glGenBuffers(1, &VBO);
-	//glGenBuffers(1, &EBO);
-	////glGenVertexArrays(1, &VAO);
-
-	//glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	//glBufferData(GL_ARRAY_BUFFER, sizeof(CubeVertices), CubeVertices, GL_STATIC_DRAW);
-	//glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	//glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(CubeIndices), CubeIndices, GL_STATIC_DRAW);
-	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-
-	////glBindVertexArray(VAO);
-	////glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	////glEnableVertexAttribArray(0);
-	////glBindVertexArray(0);
 	//Textures
 	for (int i = 0; i < CHECKERS_HEIGHT; i++) {
 		for (int j = 0; j < CHECKERS_WIDTH; j++) {
@@ -159,7 +123,7 @@ bool ModuleRenderer3D::Init()
 		}
 	}
 	MeshLoader = new Loader();
-	MeshLoader->LoadPrimalMesh("../FBX/Test.fbx");
+	MeshLoader->LoadPrimalMesh("FBX/Test.fbx"); // If in debug mode it requires to have a "../" infront for it to load from the start
 	MeshLoader->LoadBuffers();
 
 	glEnable(GL_TEXTURE_2D);
@@ -204,7 +168,6 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 
 	for(uint i = 0; i < MAX_LIGHTS; ++i)
 		lights[i].Render();
-	//DrawCube();
 	if (App->input->DROP == true) {
 		App->input->DROP = false;
 		MeshLoader->LoadPrimalMesh(App->input->filepathDROP);
@@ -219,13 +182,6 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 {
 	Grid.Render();
 	MeshLoader->DrawPrimalMeshes();
-
-	//glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	//glEnableClientState(GL_VERTEX_ARRAY);
-	//glVertexPointer(3, GL_FLOAT, 0, NULL);
-	//glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, NULL);
-
 	ExitApp = App->editor->DrawEditor();
 
 	SDL_GL_SwapWindow(App->window->window);
@@ -282,79 +238,4 @@ void ModuleRenderer3D::OnResize(int width, int height)
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-}
-
-void ModuleRenderer3D::DrawCube()
-{
-	GLfloat Vertices[16][3] =
-	{   // x     y     z
-		{-1, -1,  1}, // 1  left    First Strip
-		{-1.0,  1.0,  1.0}, // 3
-		{-1.0, -1.0, -1.0}, // 0s
-		{-1.0,  1.0, -1.0}, // 2
-		{ 1.0, -1.0, -1.0}, // 4  back
-		{ 1.0,  1.0, -1.0}, // 6
-		{ 1.0, -1.0,  1.0}, // 5  right
-		{ 1.0,  1.0,  1.0}, // 7
-		{ 1.0,  1.0, -1.0}, // 6  top     Second Strip
-		{-1.0,  1.0, -1.0}, // 2
-		{ 1.0,  1.0,  1.0}, // 7
-		{-1.0,  1.0,  1.0}, // 3
-		{ 1.0, -1.0,  1.0}, // 5  front
-		{-1.0, -1.0,  1.0}, // 1
-		{ 1.0, -1.0, -1.0}, // 4  bottom
-		{-1.0, -1.0, -1.0}  // 0
-	};
-
-	glBegin(GL_TRIANGLES);  // draw a cube 
-
-	glVertex3fv(&Vertices[0][0]);
-	glVertex3fv(&Vertices[1][0]);
-	glVertex3fv(&Vertices[2][0]);
-
-	glVertex3fv(&Vertices[2][0]);
-	glVertex3fv(&Vertices[3][0]);
-	glVertex3fv(&Vertices[1][0]);
-
-	glVertex3fv(&Vertices[2][0]);
-	glVertex3fv(&Vertices[3][0]);
-	glVertex3fv(&Vertices[4][0]);
-
-	glVertex3fv(&Vertices[4][0]);
-	glVertex3fv(&Vertices[5][0]);
-	glVertex3fv(&Vertices[3][0]);
-
-	glVertex3fv(&Vertices[4][0]);
-	glVertex3fv(&Vertices[5][0]);
-	glVertex3fv(&Vertices[6][0]);
-
-	glVertex3fv(&Vertices[5][0]);
-	glVertex3fv(&Vertices[6][0]);
-	glVertex3fv(&Vertices[7][0]);
-
-	glVertex3fv(&Vertices[7][0]);
-	glVertex3fv(&Vertices[8][0]);
-	glVertex3fv(&Vertices[9][0]);
-
-	glVertex3fv(&Vertices[1][0]);
-	glVertex3fv(&Vertices[7][0]);
-	glVertex3fv(&Vertices[9][0]);
-
-	glVertex3fv(&Vertices[0][0]);
-	glVertex3fv(&Vertices[2][0]);
-	glVertex3fv(&Vertices[4][0]);
-
-	glVertex3fv(&Vertices[0][0]);
-	glVertex3fv(&Vertices[4][0]);
-	glVertex3fv(&Vertices[6][0]);
-
-	glVertex3fv(&Vertices[0][0]);
-	glVertex3fv(&Vertices[6][0]);
-	glVertex3fv(&Vertices[7][0]);
-
-	glVertex3fv(&Vertices[0][0]);
-	glVertex3fv(&Vertices[7][0]);
-	glVertex3fv(&Vertices[1][0]);
-
-	glEnd();
 }
