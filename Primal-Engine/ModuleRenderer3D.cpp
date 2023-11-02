@@ -123,8 +123,8 @@ bool ModuleRenderer3D::Init()
 		}
 	}
 	MeshLoader = new Loader();
-	//MeshLoader->LoadPrimalMesh("FBX/Test.fbx"); // If in debug mode it requires to have a "../" infront for it to load from the start
-	//MeshLoader->LoadBuffers();
+	MeshLoader->LoadPrimalMesh("FBX/Test.fbx"); // If in debug mode it requires to have a "../" infront for it to load from the start
+	MeshLoader->LoadBuffers();
 
 	glEnable(GL_TEXTURE_2D);
 	glActiveTexture(GL_TEXTURE0);
@@ -148,6 +148,8 @@ bool ModuleRenderer3D::Init()
 	ilutInit();
 	ilutRenderer(ILUT_OPENGL);
 
+	textureID = ImportTexture("../FBX/Test.png");
+	textureID = ImportTexture("../FBX/Test.png");
 
 	return ret;
 }
@@ -170,7 +172,7 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 		App->input->DROP = false;
 		MeshLoader->LoadPrimalMesh(App->input->filepathDROP);
 		MeshLoader->LoadBuffers();
-		textureID = ImportTexture("FBX/Test.png");
+		textureID = ImportTexture("../FBX/Test.png");
 	}
 	return UPDATE_CONTINUE;
 }
