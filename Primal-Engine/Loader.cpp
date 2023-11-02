@@ -65,9 +65,14 @@ void Loader::DrawPrimalMeshes() {
 
 	for (int i = 0; i < PrimalMeshArray.size(); ++i) {
 
-		glBindBuffer(GL_ARRAY_BUFFER, PrimalMeshArray[i]->VBO);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, PrimalMeshArray[i]->EBO);
+		glEnable(GL_TEXTURE_2D);
+		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 		glEnableClientState(GL_VERTEX_ARRAY);
+		glBindBuffer(GL_ARRAY_BUFFER, PrimalMeshArray[i]->VBO);
+		glVertexPointer(3, GL_FLOAT, sizeof(float) * 5, NULL);
+		glTexCoordPointer(2, GL_FLOAT, sizeof(float) * 5, (void*)(sizeof(float) * 3));
+		glBindTexture(GL_TEXTURE_2D, 2);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, PrimalMeshArray[i]->EBO);
 		glVertexPointer(3, GL_FLOAT, 0, NULL);
 		glDrawElements(GL_TRIANGLES, PrimalMeshArray[i]->NUMindex, GL_UNSIGNED_INT, NULL);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);

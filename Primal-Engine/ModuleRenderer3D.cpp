@@ -148,13 +148,44 @@ bool ModuleRenderer3D::Init()
 	////glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	////glEnableVertexAttribArray(0);
 	////glBindVertexArray(0);
-	ilInit();
-	iluInit();
-	ilutInit();
-	ilutRenderer(ILUT_OPENGL);	
+	//Textures
+	for (int i = 0; i < CHECKERS_HEIGHT; i++) {
+		for (int j = 0; j < CHECKERS_WIDTH; j++) {
+			int c = ((((i & 0x8) == 0) ^ (((j & 0x8)) == 0))) * 255;
+			checkerImage[i][j][0] = (GLubyte)c;
+			checkerImage[i][j][1] = (GLubyte)c;
+			checkerImage[i][j][2] = (GLubyte)c;
+			checkerImage[i][j][3] = (GLubyte)255;
+		}
+	}
 	MeshLoader = new Loader();
 	MeshLoader->LoadPrimalMesh("../FBX/Test.fbx");
 	MeshLoader->LoadBuffers();
+
+	glEnable(GL_TEXTURE_2D);
+	glActiveTexture(GL_TEXTURE0);
+
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+	glGenTextures(1, &checkerTexture);
+	glBindTexture(GL_TEXTURE_2D, checkerTexture);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, CHECKERS_WIDTH, CHECKERS_HEIGHT, 0, GL_RGBA, GL_UNSIGNED_BYTE, checkerImage);
+	glGenerateMipmap(GL_TEXTURE_2D);
+
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glDisable(GL_TEXTURE_2D);
+
+	ilInit();
+	iluInit();
+	ilutInit();
+	ilutRenderer(ILUT_OPENGL);
+
+	textureID = ImportTexture("../FBX/Test.png");
+	textureID = ImportTexture("../FBX/Test.png");
 
 	return ret;
 }
@@ -178,6 +209,7 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 		App->input->DROP = false;
 		MeshLoader->LoadPrimalMesh(App->input->filepathDROP);
 		MeshLoader->LoadBuffers();
+		textureID = ImportTexture("../FBX/Test.png");
 	}
 	return UPDATE_CONTINUE;
 }
@@ -214,11 +246,28 @@ bool ModuleRenderer3D::CleanUp()
 		glDeleteBuffers(1, &VBO);
 		VBO = 0;
 	}
+	glBindTexture(GL_TEXTURE_2D, 0);
 	SDL_GL_DeleteContext(context);
 
 	return true;
 }
 
+GLuint ModuleRenderer3D::ImportTexture(const char* filePath)
+{
+	ILuint TexNumber;
+	ilGenImages(1, &TexNumber);
+	ilBindImage(TexNumber);
+	ilLoadImage(filePath);
+	GLuint id = ilutGLBindTexImage();
+	ilDeleteImages(1, &TexNumber);
+	if (TexNumber != NULL) {
+		LOG("Texture directory %s loaded successfully!", filePath);
+	}
+	else {
+		LOG("Error loading the texture :(");
+	}
+	return id;
+}
 
 void ModuleRenderer3D::OnResize(int width, int height)
 {

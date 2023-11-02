@@ -46,7 +46,6 @@ public:
 private:
 	std::vector<PrimalMesh*> PrimalMeshArray;
 	bool Normals = false;
-
 };
 
 #endif //LOADER

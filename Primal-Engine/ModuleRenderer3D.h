@@ -20,6 +20,8 @@
 #pragma comment(lib, "Devil/libx86/ILUT.lib")
 
 #define MAX_LIGHTS 8
+#define CHECKERS_HEIGHT 64
+#define CHECKERS_WIDTH 64
 
 class ModuleRenderer3D : public Module
 {
@@ -68,5 +70,8 @@ public:
 	//You won't need this after using Frustum
 	mat4x4 ProjectionMatrix;
 	//Textures
-	GLuint textureID, width, heigth;
+	GLubyte checkerImage[CHECKERS_HEIGHT][CHECKERS_WIDTH][4];
+	GLuint checkerTexture;
+	GLuint textureID;
+	GLuint IDtex, width, heigth;
 };
