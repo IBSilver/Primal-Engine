@@ -70,7 +70,7 @@ void Loader::DrawPrimalMeshes() {
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glBindBuffer(GL_ARRAY_BUFFER, PrimalMeshArray[i]->VBO);
 		glVertexPointer(3, GL_FLOAT, sizeof(float) * 5, NULL);
-		glTexCoordPointer(2, GL_FLOAT, sizeof(float) * 5, (void*)(sizeof(float) * 3));
+		glTexCoordPointer(2, GL_FLOAT, sizeof(float) * 5, (void*)(sizeof(float) * 3)); //Textures aren't showing properly because of these 2 lines, but we haven't been able to fix it
 		if (UVs == true) {
 			glBindTexture(GL_TEXTURE_2D, 1);
 		}
