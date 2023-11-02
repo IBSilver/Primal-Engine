@@ -185,7 +185,6 @@ bool ModuleRenderer3D::Init()
 	ilutRenderer(ILUT_OPENGL);
 
 	textureID = ImportTexture("../FBX/Test.png");
-	textureID = ImportTexture("../FBX/Test.png");
 
 	return ret;
 }
