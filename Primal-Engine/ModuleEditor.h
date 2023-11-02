@@ -39,6 +39,7 @@ public:
 	//About
 	bool About = false;
 	void AboutWindow();
+	//ImGuiWindowFlags window_about;
 
 
 };
