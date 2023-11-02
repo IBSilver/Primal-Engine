@@ -617,9 +617,6 @@
     <ClCompile Include="Loader.cpp">
       <Filter>Sources\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="DevIL\include\luadevil.c">
-      <Filter>Sources\DevIL\include</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="MathGeoLib\include\Geometry\KDTree.inl">

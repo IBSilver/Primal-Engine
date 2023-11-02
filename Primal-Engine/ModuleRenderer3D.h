@@ -11,13 +11,13 @@
 //todo: REMOVE this before 1st delivery!!
 #include "glmath.h"
 
-//#include "DevIL/include/ilut.h"
-//#include "DevIL/include/ilu.h"
-//#include "DevIL/include/il.h"
-//
-//#pragma comment(lib, "Devil/libx86/DevIL.lib")
-//#pragma comment(lib, "Devil/libx86/ILU.lib")
-//#pragma comment(lib, "Devil/libx86/ILUT.lib")
+#include "DevIL/include/ilut.h"
+#include "DevIL/include/ilu.h"
+#include "DevIL/include/il.h"
+
+#pragma comment(lib, "Devil/libx86/DevIL.lib")
+#pragma comment(lib, "Devil/libx86/ILU.lib")
+#pragma comment(lib, "Devil/libx86/ILUT.lib")
 
 #define MAX_LIGHTS 8
 

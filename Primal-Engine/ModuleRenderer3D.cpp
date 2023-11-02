@@ -148,6 +148,10 @@ bool ModuleRenderer3D::Init()
 	////glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	////glEnableVertexAttribArray(0);
 	////glBindVertexArray(0);
+	ilInit();
+	iluInit();
+	ilutInit();
+	ilutRenderer(ILUT_OPENGL);	
 	MeshLoader = new Loader();
 	MeshLoader->LoadPrimalMesh("../FBX/Test.fbx");
 	MeshLoader->LoadBuffers();

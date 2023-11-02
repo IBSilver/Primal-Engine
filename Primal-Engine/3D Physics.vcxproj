@@ -213,7 +213,6 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Color.cpp" />
-    <ClCompile Include="DevIL\include\luadevil.c" />
     <ClCompile Include="glmath.cpp" />
     <ClCompile Include="ImGui\backends\imgui_impl_opengl3.cpp" />
     <ClCompile Include="ImGui\backends\imgui_impl_sdl.cpp" />
