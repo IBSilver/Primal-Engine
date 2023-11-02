@@ -43,9 +43,14 @@ public:
 
 	void ChangeNormals();
 	
+	bool GetUVs();
+
+	void ChangeUVs();
+
 private:
 	std::vector<PrimalMesh*> PrimalMeshArray;
 	bool Normals = false;
+	bool UVs = false;
 };
 
 #endif //LOADER

@@ -150,13 +150,16 @@ bool ModuleEditor::DrawEditor() {
             ImGui::Checkbox("Normals Enabled", &Temp);
             if (Temp != App->renderer3D->MeshLoader->GetNormals())
             {
-                if (App->renderer3D->MeshLoader->GetNormals() == true) {
-                    App->renderer3D->MeshLoader->ChangeNormals();
-                }
-                if (App->renderer3D->MeshLoader->GetNormals() == false) {
-                    App->renderer3D->MeshLoader->ChangeNormals();
-                }
+                App->renderer3D->MeshLoader->ChangeNormals();
             }
+
+            Temp = App->renderer3D->MeshLoader->GetUVs();
+            ImGui::Checkbox("UVs Enabled", &Temp);
+            if (Temp != App->renderer3D->MeshLoader->GetUVs())
+            {
+                App->renderer3D->MeshLoader->ChangeUVs();
+            }
+
             ImGui::EndMenu();
         }
         if (ImGui::BeginMenu("Select"))

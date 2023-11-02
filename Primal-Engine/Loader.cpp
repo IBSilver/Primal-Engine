@@ -71,7 +71,12 @@ void Loader::DrawPrimalMeshes() {
 		glBindBuffer(GL_ARRAY_BUFFER, PrimalMeshArray[i]->VBO);
 		glVertexPointer(3, GL_FLOAT, sizeof(float) * 5, NULL);
 		glTexCoordPointer(2, GL_FLOAT, sizeof(float) * 5, (void*)(sizeof(float) * 3));
-		glBindTexture(GL_TEXTURE_2D, 2);
+		if (UVs == true) {
+			glBindTexture(GL_TEXTURE_2D, 1);
+		}
+		else if (UVs == false) {
+			glBindTexture(GL_TEXTURE_2D, 2);
+		}
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, PrimalMeshArray[i]->EBO);
 		glVertexPointer(3, GL_FLOAT, 0, NULL);
 		glDrawElements(GL_TRIANGLES, PrimalMeshArray[i]->NUMindex, GL_UNSIGNED_INT, NULL);
@@ -89,5 +94,23 @@ bool Loader::GetNormals() {
 }
 
 void Loader::ChangeNormals() {
-	Normals = !Normals;
+	if (Normals == false) {
+		Normals = true;
+	}
+	else if (Normals == true) {
+		Normals = false;
+	}
+}
+
+bool Loader::GetUVs() {
+	return UVs;
+}
+
+void Loader::ChangeUVs() {
+	if (UVs == false) {
+		UVs = true;
+	}
+	else if (UVs == true) {
+		UVs = false;
+	}
 }
