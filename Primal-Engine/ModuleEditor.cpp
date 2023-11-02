@@ -176,8 +176,8 @@ bool ModuleEditor::DrawEditor() {
         if (ImGui::Begin("About Us")) {
             ImGui::SeparatorText("ABOUT PRIMAL ENGINE:");
             ImGui::Text("Primal Engine v.0.0.1");
-            ImGui::End();
         }
+        ImGui::End();
     }
 
     ImGui::PlotHistogram("FPS", mFPSLog.data(), mFPSLogSize);
