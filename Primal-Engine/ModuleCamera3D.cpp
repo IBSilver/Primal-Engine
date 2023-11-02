@@ -48,38 +48,25 @@ update_status ModuleCamera3D::Update(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
 		speed = 8.0f * dt;
 
-	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_REPEAT) newPos.y += speed;
-	if (App->input->GetKey(SDL_SCANCODE_F) == KEY_REPEAT) newPos.y -= speed;
-
 	if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT) newPos -= Z * speed;
 	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT) newPos += Z * speed;
-
 
 	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT) newPos -= X * speed;
 	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT) newPos += X * speed;
 
-	Position += newPos;
-	Reference += newPos;
-
 	// Mouse motion ----------------
 	
+	//Flythrough mode
 	if (App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT)
 	{
-		if (App->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
-			speed = 8.0f * dt;
-
 		if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT) newPos.y += speed;
 		if (App->input->GetKey(SDL_SCANCODE_E) == KEY_REPEAT) newPos.y -= speed;
 
 		if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) newPos -= Z * speed;
 		if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) newPos += Z * speed;
 
-
 		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) newPos -= X * speed;
 		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) newPos += X * speed;
-
-		Position += newPos;
-		Reference += newPos;
 
 		int dx = -App->input->GetMouseXMotion();
 		int dy = -App->input->GetMouseYMotion();
@@ -118,7 +105,8 @@ update_status ModuleCamera3D::Update(float dt)
 
 		Position = Reference + Z * Position.Length();
 	}
-
+	
+	//Orbit camera
 	if (App->input->GetKey(SDL_SCANCODE_LALT) == KEY_REPEAT && App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_REPEAT)
 	{
 		int dx = -App->input->GetMouseXMotion();
@@ -159,17 +147,37 @@ update_status ModuleCamera3D::Update(float dt)
 		Position = Reference + Z * Position.Length();
 	}
 
-	//Mouse wheel
+	//Pan with mouse wheel button
+	if (App->input->GetMouseButton(SDL_BUTTON_MIDDLE) == KEY_REPEAT)
+	{
+		int dx = -App->input->GetMouseXMotion();
+		int dy = -App->input->GetMouseYMotion();
+		float Sensitivity = 0.35f * dt;
+
+		if (dx != 0)
+		{
+			float DeltaX = (float)dx * Sensitivity;
+			newPos += X * DeltaX;
+		}
+
+		if (dy != 0)
+		{
+			float DeltaY = (float)dy * Sensitivity;
+			newPos -= Y * DeltaY;
+		}
+	}
+	
+	//Zoom with mouse wheel scroll
 	if (App->input->GetMouseZ() != 0)
 	{
 		float speed = 20.0f * dt;
 		if (App->input->GetMouseZ() < 0) newPos += Z * speed;
 		if (App->input->GetMouseZ() > 0) newPos -= Z * speed;
-		Position += newPos;
-		Reference += newPos;
 	}
 
 	LookAt(Reference);
+	Position += newPos;
+	Reference += newPos;
 
 	// Recalculate matrix -------------
 	CalculateViewMatrix();
