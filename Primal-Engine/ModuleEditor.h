@@ -6,6 +6,7 @@
 #include "Module.h"
 #include "Globals.h"
 #include <vector>
+#include <string>
 #include "Glew/include/glew.h"
 
 class ModuleEditor : public Module
@@ -19,21 +20,25 @@ public:
 
 	bool DrawEditor();
 
-	void AddFPS(const float aFPS);
-
 	bool CleanUp() override;
 
+	void AddFPS(const float aFPS);
 	std::vector<float> mFPSLog;
 	int mFPSLogSize = 50;
 	
-	std::vector<const char*> mConsoleLog;
+	//Console window
+	std::vector <std::string> mConsoleLog;
+	bool Console = false;
+	void ConsoleLog();
+
 	bool Initializated = false;
 
 	//Glew enable disable
 	bool Depth_Test = true, Cull = true, Lightning = true, colorMaterial = true, Texture2D = true;
 
 	//About
-	bool AboutOpen = false;
+	bool About = false;
+	void AboutWindow();
 	//ImGuiWindowFlags window_about;
 
 
