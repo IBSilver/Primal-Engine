@@ -1,0 +1,170 @@
+﻿  Application.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': redefinición de macro
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : vea la definición anterior de 'M_PI'
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\defs.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix3x3.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix3x3.inl(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix4x4.inl(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Color.cpp
+  glmath.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\glmath.cpp(12,13): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\glmath.cpp(27,17): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\glmath.cpp(43,34): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\glmath.cpp(53,10): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\glmath.cpp(53,26): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\glmath.cpp(72,13): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\glmath.cpp(87,17): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\glmath.cpp(103,34): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\glmath.cpp(600,13): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\glmath.cpp(618,10): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\glmath.cpp(618,33): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\glmath.cpp(758,13): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\glmath.cpp(778,10): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\glmath.cpp(778,33): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+  imgui_impl_opengl3.cpp
+  imgui_impl_sdl.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  Light.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Loader.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\defs.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix3x3.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix3x3.inl(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix4x4.inl(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\Loader.cpp(12,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\Loader.cpp(49,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\Loader.cpp(66,20): warning C4018: '<': no coinciden signed/unsigned
+  log.cpp
+  Main.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': redefinición de macro
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : vea la definición anterior de 'M_PI'
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\defs.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix3x3.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix3x3.inl(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix4x4.inl(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  LCG.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  AABB.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Capsule.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Circle.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Cone.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Cylinder.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Compilando...
+  Frustum.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Line.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  LineSegment.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  OBB.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Plane.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Polygon.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\Geometry\Polygon.cpp(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Polyhedron.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Ray.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Sphere.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Triangle.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  TriangleMesh.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  BitOps.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  float2.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  float3.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  float3x3.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  float3x4.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  float4.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  float4x4.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  MathFunc.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  MathLog.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Compilando...
+  MathOps.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Polynomial.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Quat.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  SSEMath.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  TransformOps.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Clock.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  ModuleCamera3D.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': redefinición de macro
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : vea la definición anterior de 'M_PI'
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\defs.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix3x3.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix3x3.inl(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix4x4.inl(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  ModuleEditor.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': redefinición de macro
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : vea la definición anterior de 'M_PI'
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\defs.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix3x3.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix3x3.inl(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix4x4.inl(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\ModuleEditor.cpp(202,24): warning C4018: '>=': no coinciden signed/unsigned
+  ModuleInput.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': redefinición de macro
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : vea la definición anterior de 'M_PI'
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\defs.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix3x3.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix3x3.inl(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix4x4.inl(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  ModuleRenderer3D.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': redefinición de macro
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : vea la definición anterior de 'M_PI'
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\defs.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix3x3.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix3x3.inl(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix4x4.inl(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  ModuleWindow.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: 'M_PI': redefinición de macro
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\SDL\include\SDL_stdinc.h(619): message : vea la definición anterior de 'M_PI'
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\defs.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix3x3.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix3x3.inl(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\assimp\include\matrix4x4.inl(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+  Primitive.cpp
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\MathGeoLib\include\MathBuildConfig.h(1,1): warning C4819: El archivo contiene un carácter que no se puede representar en la página de códigos actual (932). Guarde el archivo con formato Unicode para evitar la pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\Primitive.cpp(177,11): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\Primitive.cpp(187,11): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\Primitive.cpp(196,11): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+  Timer.cpp
+  parson.c
+  Generando código
+  Previous IPDB not found, fall back to full compilation.
+  All 2526 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Generación de código finalizada
+  3D Physics.vcxproj -> C:\Users\NitroPC\Documents\GitHub\Primal-Engine\Primal-Engine\Release\Primal-Engine.exe

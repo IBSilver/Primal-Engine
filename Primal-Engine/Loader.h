@@ -38,9 +38,14 @@ public:
 	void LoadBuffers();
 
 	void DrawPrimalMeshes();
+
+	bool GetNormals();
+
+	void ChangeNormals();
+	
 private:
 	std::vector<PrimalMesh*> PrimalMeshArray;
-	bool normals = false;
+	bool Normals = false;
 
 };
 

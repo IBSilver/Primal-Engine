@@ -1,7 +1,7 @@
 #include "Loader.h"
 
 Loader::Loader() {
-	normals = false;
+	Normals = false;
 }
 
 void Loader::LoadPrimalMesh(const char* filePath) {
@@ -73,4 +73,16 @@ void Loader::DrawPrimalMeshes() {
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	}
+
+	if (Normals == true) {
+		//Code for showing normals (Couldn't implement it)
+	}
+}
+
+bool Loader::GetNormals() {
+	return Normals;
+}
+
+void Loader::ChangeNormals() {
+	Normals = !Normals;
 }

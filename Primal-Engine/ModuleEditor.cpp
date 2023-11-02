@@ -3,6 +3,7 @@
 #include "ImGui/backends/imgui_impl_opengl3.h"
 #include "ImGui/backends/imgui_impl_sdl.h"
 #include "Application.h"
+#include "Loader.h"
 
 ModuleEditor::ModuleEditor(Application* app, bool start_enabled) : Module(app, start_enabled) {
 
@@ -145,6 +146,17 @@ bool ModuleEditor::DrawEditor() {
                 }
             }
 
+            Temp = App->renderer3D->MeshLoader->GetNormals();
+            ImGui::Checkbox("Normals Enabled", &Temp);
+            if (Temp != App->renderer3D->MeshLoader->GetNormals())
+            {
+                if (App->renderer3D->MeshLoader->GetNormals() == true) {
+                    App->renderer3D->MeshLoader->ChangeNormals();
+                }
+                if (App->renderer3D->MeshLoader->GetNormals() == false) {
+                    App->renderer3D->MeshLoader->ChangeNormals();
+                }
+            }
             ImGui::EndMenu();
         }
         if (ImGui::BeginMenu("Select"))

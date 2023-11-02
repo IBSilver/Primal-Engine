@@ -59,6 +59,8 @@ public:
 	}
 
 private:
+	char* dropped_filedir;
+	bool dropped;
 	KEY_STATE* keyboard;
 	KEY_STATE mouse_buttons[MAX_MOUSE_BUTTONS];
 	int mouse_x;
